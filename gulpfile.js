@@ -24,28 +24,32 @@ gulp.task('bundle-styles-global', [], function () {
 gulp.task('bundle-libs', function () {
     browserify()
         .require('jquery', { expose: 'jquery' })
+        .require('lodash', { expose: 'lodash' })
         .require('react', { expose: 'react' })
+        .require('react-router', { expose: 'react-router' })
         .bundle()
         .on('error', console.error.bind(console))
         .pipe(source('bundle-libs.js'))
         .pipe(gulp.dest('./wwwroot/assets/js'));
 });
 
-gulp.task('bundle-app', function () {
-    browserify('./assets/js/app/app.js')
+gulp.task('bundle-react-admin', function () {
+    browserify('./assets/js/react_admin/main.js')
         .transform(reactify)
         .external('jquery')
+        .external('lodash')
         .external('react')
+        .external('react-router')
         .bundle()
         .on('error', console.error.bind(console))
-        .pipe(source('bundle-app.js'))
+        .pipe(source('bundle-react-admin.js'))
         .pipe(gulp.dest('./wwwroot/assets/js'));
 });
 
 gulp.task('default', [
     'fonts', 
     'bundle-libs',
-    'bundle-app', 
+    'bundle-react-admin', 
     'bundle-styles-global'
 ], function () {
 
