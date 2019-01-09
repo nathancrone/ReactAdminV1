@@ -16,7 +16,8 @@ gulp.task('bundle-styles-global', [], function () {
     return gulp.src('./assets/sass/**/*.scss')
         .pipe($.sass({
             includePaths: [
-                './node_modules/bootstrap-sass/assets/stylesheets'
+                './node_modules/bootstrap-sass/assets/stylesheets', 
+                './node_modules/toastr'
             ]
         }).on('error', $.sass.logError)).pipe(gulp.dest('./wwwroot/assets/css'));
 });
