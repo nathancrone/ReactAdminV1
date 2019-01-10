@@ -23,6 +23,7 @@
     "jquery-validation": "^1.18.0",
     "lodash": "^4.17.11",
     "node-sass": "^4.10.0",
+    "object-assign": "^3.0.0",
     "react": "^0.13.3",
     "react-router": "^0.13.3",
     "reactify": "^1.1.1",
